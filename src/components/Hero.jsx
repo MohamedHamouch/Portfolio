@@ -5,14 +5,13 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Animated gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#00d4ff]/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#a855f7]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-[#f43f5e]/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-      <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-[#10b981]/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#22d3ee]/8 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#a855f7]/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-[#fbbf24]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
 
       {/* Subtle grid background */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `linear-gradient(var(--color-text-muted) 1px, transparent 1px),
                            linear-gradient(90deg, var(--color-text-muted) 1px, transparent 1px)`,
@@ -25,7 +24,8 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-mono text-lg mb-5 text-[#00d4ff]"
+          className="font-mono text-lg text-[var(--color-text-muted)]"
+          style={{ marginBottom: '2rem' }}
         >
           Hello, I'm
         </motion.p>
@@ -34,7 +34,8 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-5"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold"
+          style={{ marginBottom: '2rem' }}
         >
           <span className="gradient-text">Your Name</span>
         </motion.h1>
@@ -43,7 +44,8 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-2xl md:text-3xl text-[var(--color-text-muted)] mb-6 font-medium"
+          className="text-2xl md:text-3xl text-[var(--color-text-muted)] font-medium"
+          style={{ marginBottom: '2.5rem' }}
         >
           Full Stack Developer
         </motion.h2>
@@ -52,22 +54,21 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed text-center"
+          className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-[var(--color-text-muted)]"
+          style={{ marginBottom: '3.5rem' }}
         >
-          <span className="text-[var(--color-text)]">I build robust, scalable web applications</span>{' '}
-          <span className="text-[#00d4ff]">with modern technologies.</span>
-          <br />
-          <span className="text-[var(--color-text-muted)]">Passionate about</span>{' '}
-          <span className="text-[#a855f7]">clean code</span>,{' '}
-          <span className="text-[#10b981]">elegant solutions</span>, and{' '}
-          <span className="text-[#f59e0b]">continuous learning</span>.
+          I build robust, scalable web applications with modern technologies.
+          <br className="hidden md:block" />
+          Passionate about clean code, elegant solutions, and continuous learning.
         </motion.p>
 
+        {/* Buttons with proper spacing */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-wrap items-center justify-center gap-5 mb-12"
+          className="flex flex-wrap items-center justify-center"
+          style={{ gap: '1.5rem', marginBottom: '3.5rem' }}
         >
           <a href="#contact" className="btn-primary">
             Get in Touch
@@ -77,17 +78,19 @@ const Hero = () => {
           </a>
         </motion.div>
 
+        {/* Social icons with proper spacing */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex items-center justify-center gap-8"
+          className="flex items-center justify-center"
+          style={{ gap: '1.5rem' }}
         >
           <a
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[#00d4ff] hover:border-[#00d4ff]/50 transition-all hover:scale-110"
+            className="p-4 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
             aria-label="GitHub"
           >
             <FiGithub size={24} />
@@ -96,14 +99,14 @@ const Hero = () => {
             href="https://linkedin.com/in/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[#a855f7] hover:border-[#a855f7]/50 transition-all hover:scale-110"
+            className="p-4 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
             aria-label="LinkedIn"
           >
             <FiLinkedin size={24} />
           </a>
           <a
             href="mailto:your@email.com"
-            className="p-3 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[#f43f5e] hover:border-[#f43f5e]/50 transition-all hover:scale-110"
+            className="p-4 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
             aria-label="Email"
           >
             <FiMail size={24} />
@@ -117,13 +120,13 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
         >
-          <FiChevronDown size={32} />
+          <FiChevronDown size={28} />
         </motion.div>
       </motion.a>
     </section>

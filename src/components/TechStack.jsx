@@ -31,7 +31,6 @@ import { VscBeaker } from 'react-icons/vsc';
 const skillCategories = [
   {
     title: 'Front-end',
-    color: '#00d4ff',
     skills: [
       { name: 'HTML5', icon: SiHtml5, color: '#E34F26' },
       { name: 'CSS3', icon: SiCss3, color: '#1572B6' },
@@ -47,7 +46,6 @@ const skillCategories = [
   },
   {
     title: 'Back-end',
-    color: '#a855f7',
     skills: [
       { name: 'Java', icon: FaJava, color: '#ED8B00' },
       { name: 'Spring Boot', icon: SiSpringboot, color: '#6DB33F' },
@@ -59,7 +57,6 @@ const skillCategories = [
   },
   {
     title: 'Databases',
-    color: '#10b981',
     skills: [
       { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
       { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
@@ -68,7 +65,6 @@ const skillCategories = [
   },
   {
     title: 'Testing & Quality',
-    color: '#f59e0b',
     skills: [
       { name: 'JUnit', icon: VscBeaker, color: '#25A162' },
       { name: 'Mockito', icon: VscBeaker, color: '#78C257' },
@@ -78,7 +74,6 @@ const skillCategories = [
   },
   {
     title: 'DevOps & Tools',
-    color: '#f43f5e',
     skills: [
       { name: 'Git', icon: SiGit, color: '#F05032' },
       { name: 'GitHub', icon: SiGithub, color: '#ffffff' },
@@ -88,7 +83,6 @@ const skillCategories = [
   },
   {
     title: 'Project Management',
-    color: '#00d4ff',
     skills: [
       { name: 'Scrum', icon: SiJira, color: '#0052CC' },
       { name: 'Kanban', icon: SiTrello, color: '#0079BF' },
@@ -113,32 +107,22 @@ const TechStack = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <AnimatedSection key={category.title} delay={categoryIndex * 0.08}>
-              <div 
-                className="card h-full"
-                style={{ borderColor: `${category.color}25` }}
-              >
-                <h3 
-                  className="font-mono text-base font-semibold mb-6 flex items-center gap-3"
-                  style={{ color: category.color }}
-                >
-                  <span 
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: category.color }}
-                  />
+              <div className="card h-full">
+                <h3 className="font-mono text-base font-semibold mb-6" style={{ color: category.title === 'Back-end' || category.title === 'Testing & Quality' ? 'var(--color-amber)' : 'var(--color-text)' }}>
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {category.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="flex items-center gap-2.5 px-4 py-2.5 bg-[var(--color-bg)] rounded-lg border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-all cursor-default group"
+                      className="flex items-center bg-[var(--color-bg)] rounded-lg border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-all cursor-default group"
+                      style={{ padding: '12px 20px', gap: '12px' }}
                     >
                       <skill.icon
-                        size={20}
-                        style={{ color: skill.color }}
-                        className="transition-transform group-hover:scale-110"
+                        size={18}
+                        style={{ color: skill.color, flexShrink: 0 }}
                       />
-                      <span className="text-base text-[var(--color-text-muted)] group-hover:text-[var(--color-text)] transition-colors">
+                      <span className="text-sm text-[var(--color-text-muted)] group-hover:text-[var(--color-text)] transition-colors whitespace-nowrap">
                         {skill.name}
                       </span>
                     </div>
@@ -151,16 +135,16 @@ const TechStack = () => {
 
         {/* Design & Analysis Section */}
         <AnimatedSection delay={0.5} className="mt-8">
-          <div className="card" style={{ borderColor: '#a855f725' }}>
-            <h3 className="font-mono text-base font-semibold mb-6 flex items-center gap-3 text-[#a855f7]">
-              <span className="w-2 h-2 rounded-full bg-[#a855f7]" />
+          <div className="card">
+            <h3 className="font-mono text-base font-semibold mb-6 text-[var(--color-text)]">
               Analysis & Design
             </h3>
             <div className="flex flex-wrap gap-3">
               {['UML', 'Merise', 'Relational Modeling', 'System Design', 'ERD'].map((item) => (
                 <span
                   key={item}
-                  className="px-4 py-2.5 bg-[var(--color-bg)] rounded-lg border border-[var(--color-border)] text-base text-[var(--color-text-muted)] hover:border-[var(--color-border-hover)] hover:text-[var(--color-text)] transition-all cursor-default"
+                  className="bg-[var(--color-bg)] rounded-lg border border-[var(--color-border)] text-sm text-[var(--color-text-muted)] hover:border-[var(--color-border-hover)] hover:text-[var(--color-text)] transition-all cursor-default"
+                  style={{ padding: '12px 20px' }}
                 >
                   {item}
                 </span>

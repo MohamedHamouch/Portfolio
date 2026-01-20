@@ -15,7 +15,6 @@ const experiences = [
       'Worked on database design and optimization with PostgreSQL',
     ],
     technologies: ['React', 'Spring Boot', 'PostgreSQL', 'Docker', 'Git'],
-    color: '#00d4ff',
   },
   {
     title: 'Web Developer Intern',
@@ -30,7 +29,6 @@ const experiences = [
       'Learned agile methodologies and team collaboration',
     ],
     technologies: ['Laravel', 'PHP', 'MySQL', 'Bootstrap', 'JavaScript'],
-    color: '#a855f7',
   },
 ];
 
@@ -47,42 +45,38 @@ const Experience = () => {
 
         <div className="max-w-4xl">
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-5 md:left-6 top-3 bottom-3 w-0.5 bg-gradient-to-b from-[#00d4ff] via-[#a855f7] to-[#10b981]" />
+            {/* Timeline line - amber gradient */}
+            <div className="absolute left-5 md:left-6 top-3 bottom-3 w-0.5 bg-gradient-to-b from-[var(--color-amber)] via-[var(--color-amber)]/50 to-transparent" />
 
             {experiences.map((exp, index) => (
               <AnimatedSection key={index} delay={index * 0.15}>
                 <div className="relative pl-14 md:pl-16 pb-14 last:pb-0">
-                  {/* Timeline dot */}
+                  {/* Timeline dot - amber */}
                   <div 
-                    className="absolute left-2 md:left-3 top-2 w-7 h-7 rounded-full flex items-center justify-center"
-                    style={{ 
-                      backgroundColor: 'var(--color-bg)', 
-                      border: `3px solid ${exp.color}`,
-                      boxShadow: `0 0 20px ${exp.color}40`
-                    }}
+                    className="absolute left-2 md:left-3 top-2 w-7 h-7 rounded-full flex items-center justify-center bg-[var(--color-bg)] border-2 border-[var(--color-amber)]"
+                    style={{ boxShadow: '0 0 15px rgba(251, 191, 36, 0.3)' }}
                   >
-                    <FiBriefcase size={12} style={{ color: exp.color }} />
+                    <FiBriefcase size={12} className="text-[var(--color-amber)]" />
                   </div>
 
-                  <div className="card" style={{ borderColor: `${exp.color}25` }}>
+                  <div className="card">
                     {/* Header */}
                     <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
                       <div>
                         <h3 className="text-xl font-bold text-[var(--color-text)] mb-2">
                           {exp.title}
                         </h3>
-                        <p className="text-lg font-medium" style={{ color: exp.color }}>
+                        <p className="text-lg font-medium text-[var(--color-amber)]">
                           {exp.company}
                         </p>
                       </div>
                       <div className="text-right space-y-2">
                         <div className="flex items-center gap-2 text-[var(--color-text-muted)] text-base">
-                          <FiCalendar size={16} style={{ color: exp.color }} />
+                          <FiCalendar size={16} className="text-[var(--color-amber)]" />
                           <span>{exp.period}</span>
                         </div>
                         <div className="flex items-center gap-2 text-[var(--color-text-muted)] text-base">
-                          <FiMapPin size={16} style={{ color: exp.color }} />
+                          <FiMapPin size={16} className="text-[var(--color-amber)]" />
                           <span>{exp.location}</span>
                         </div>
                       </div>
@@ -92,7 +86,7 @@ const Experience = () => {
                     <ul className="space-y-3 mb-6">
                       {exp.description.map((item, i) => (
                         <li key={i} className="flex items-start gap-4 text-base text-[var(--color-text-muted)]">
-                          <span style={{ color: exp.color }} className="mt-1.5 text-lg">▹</span>
+                          <span className="text-[var(--color-amber)] mt-1">▹</span>
                           <span className="leading-relaxed">{item}</span>
                         </li>
                       ))}
@@ -103,12 +97,7 @@ const Experience = () => {
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-4 py-2 text-sm font-mono rounded-lg transition-all hover:scale-105"
-                          style={{ 
-                            backgroundColor: `${exp.color}15`,
-                            color: exp.color,
-                            border: `1px solid ${exp.color}30`
-                          }}
+                          className="px-3 py-1.5 text-sm font-mono rounded-md bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text-muted)]"
                         >
                           {tech}
                         </span>
