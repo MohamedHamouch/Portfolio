@@ -10,7 +10,7 @@ const Footer = () => {
           Designed & Built with
           <FiHeart className="text-[var(--color-accent)]" size={16} />
           by
-          <span className="text-[var(--color-accent)] font-medium">Your Name</span>
+          <span className="text-[var(--color-accent)] font-medium">HAMOUCH MOHAMED</span>
         </p>
         <p className="text-sm text-[var(--color-text-muted)] mt-3 font-mono">
           © {currentYear} • Built with React & Tailwind CSS

@@ -30,33 +30,26 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 py-5 flex items-center justify-between">
+      <div className="container mx-auto px-6 py-6 flex items-center justify-between">
         {/* Logo */}
         <a 
           href="#" 
-          className="font-mono text-xl font-bold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
+          className="font-mono text-2xl font-bold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
         >
           &lt;dev /&gt;
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="nav-link text-base"
+              className="nav-link text-lg"
             >
               {item.name}
             </a>
           ))}
-          <a
-            href="#cv"
-            className="flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 rounded-lg text-[var(--color-accent)] hover:bg-[var(--color-accent)]/20 hover:border-[var(--color-accent)] transition-all font-medium"
-          >
-            <FiFileText size={18} />
-            Download Resume
-          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,14 +76,6 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <a
-              href="#cv"
-              className="flex items-center gap-2 px-4 py-3 border border-[var(--color-border)] rounded-lg text-[var(--color-text)] w-fit text-lg"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <FiFileText size={18} />
-              Resume
-            </a>
           </div>
         </div>
       )}

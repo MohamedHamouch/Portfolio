@@ -20,96 +20,100 @@ const Hero = () => {
       />
 
       <div className="container relative z-10 px-6 flex flex-col items-center text-center">
+        {/* Greeting with coral accent */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-mono text-lg text-[var(--color-text-muted)]"
-          style={{ marginBottom: '2rem' }}
+          className="font-mono text-base md:text-lg"
+          style={{ marginBottom: '0.75rem', color: '#ff6b6b' }}
         >
           Hello, I'm
         </motion.p>
 
+        {/* Name - closer to greeting */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold"
-          style={{ marginBottom: '2rem' }}
+          className="text-4xl md:text-5xl lg:text-6xl font-bold"
+          style={{ marginBottom: '1rem' }}
         >
-          <span className="gradient-text">Your Name</span>
+          <span className="gradient-text">HAMOUCH MOHAMED</span>
         </motion.h1>
 
+        {/* Title - moderate spacing from name */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-2xl md:text-3xl text-[var(--color-text-muted)] font-medium"
-          style={{ marginBottom: '2.5rem' }}
+          className="text-xl md:text-2xl text-[var(--color-text-muted)] font-medium"
+          style={{ marginBottom: '2rem' }}
         >
           Full Stack Developer
         </motion.h2>
 
+        {/* Description - larger gap before this section */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-[var(--color-text-muted)]"
-          style={{ marginBottom: '3.5rem' }}
+          className="text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-[var(--color-text-muted)]"
+          style={{ marginBottom: '2.5rem' }}
         >
           I build robust, scalable web applications with modern technologies.
           <br className="hidden md:block" />
           Passionate about clean code, elegant solutions, and continuous learning.
         </motion.p>
 
-        {/* Buttons with proper spacing */}
+        {/* Buttons - grouped together */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex flex-wrap items-center justify-center"
-          style={{ gap: '1.5rem', marginBottom: '3.5rem' }}
+          style={{ gap: '1rem', marginBottom: '2.5rem' }}
         >
-          <a href="#contact" className="btn-primary">
+          <a href="#contact" className="btn-primary text-base px-7 py-3.5">
             Get in Touch
           </a>
-          <a href="#projects" className="btn-secondary">
+          <a href="#projects" className="btn-secondary text-base px-7 py-3.5">
             View Projects
           </a>
         </motion.div>
 
-        {/* Social icons with proper spacing */}
+        {/* Social icons */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="flex items-center justify-center"
-          style={{ gap: '1.5rem' }}
+          style={{ gap: '1rem' }}
         >
           <a
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-4 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
+            className="p-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
             aria-label="GitHub"
           >
-            <FiGithub size={24} />
+            <FiGithub size={22} />
           </a>
           <a
             href="https://linkedin.com/in/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-4 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
+            className="p-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
             aria-label="LinkedIn"
           >
-            <FiLinkedin size={24} />
+            <FiLinkedin size={22} />
           </a>
           <a
             href="mailto:your@email.com"
-            className="p-4 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
+            className="p-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
             aria-label="Email"
           >
-            <FiMail size={24} />
+            <FiMail size={22} />
           </a>
         </motion.div>
       </div>
