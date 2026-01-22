@@ -4,16 +4,16 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-10 border-t border-[var(--color-border)]">
-      <div className="container text-center">
-        <p className="text-base text-[var(--color-text-muted)] flex items-center justify-center gap-2">
+    <footer className="border-t border-[var(--color-border)]" style={{ padding: '3rem 2rem' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+        <p className="text-[var(--color-text-muted)]" style={{ fontSize: '0.875rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
           Designed & Built with
-          <FiHeart className="text-[var(--color-accent)]" size={16} />
+          <FiHeart className="text-[var(--color-secondary)]" size={14} />
           by
-          <span className="text-[var(--color-accent)] font-medium">HAMOUCH MOHAMED</span>
+          <span className="text-[var(--color-text)] font-medium">Mohamed Hamouch</span>
         </p>
-        <p className="text-sm text-[var(--color-text-muted)] mt-3 font-mono">
-          © {currentYear} • Built with React & Tailwind CSS
+        <p className="text-[var(--color-text-muted)] font-mono" style={{ fontSize: '0.75rem', marginTop: '0.75rem' }}>
+          © {currentYear}
         </p>
       </div>
     </footer>

@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    --font-sans: 'Poppins', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+}
+
 /* Custom Theme Variables - Refined Color Palette */
 :root {
   --color-bg: #0a0a0f;
@@ -14,11 +21,12 @@
   --color-accent: #22d3ee;
   --color-accent-hover: #06b6d4;
   --color-accent-glow: rgba(34, 211, 238, 0.12);
-  /* Secondary - Purple for variety */
-  --color-secondary: #a78bfa;
-  --color-secondary-hover: #8b5cf6;
-  /* Amber - for timeline/experience accents */
-  --color-amber: #fbbf24;
+  /* Secondary accent - Muted warm gold for subtle variety */
+  --color-secondary: #d4a574;
+  --color-secondary-hover: #c49563;
+  --color-secondary-glow: rgba(212, 165, 116, 0.08);
+  /* Purple for gradient variety */
+  --color-purple: #a78bfa;
   /* Tertiary accents */
   --color-tertiary: #34d399;
 }
@@ -36,7 +44,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.7;
@@ -45,7 +53,7 @@ body {
   font-size: 1rem;
 }
 
-/* Subtle gradient background */
+/* Subtle gradient background with warm undertones */
 body::before {
   content: '';
   position: fixed;
@@ -55,8 +63,8 @@ body::before {
   bottom: 0;
   background:
     radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.04), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(167, 139, 250, 0.03), transparent),
-    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(52, 211, 153, 0.03), transparent);
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(212, 165, 116, 0.03), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(167, 139, 250, 0.02), transparent);
   pointer-events: none;
   z-index: 0;
 }
@@ -135,15 +143,28 @@ section {
   width: 100%;
 }
 
-/* Section Headers */
+/* Section Headers - Modern Design */
 .section-header {
-  font-size: 1.875rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 3rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   color: var(--color-text);
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
 }
 
 @media (min-width: 768px) {
@@ -154,9 +175,9 @@ section {
 
 .section-number {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: var(--color-accent);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* Cards */
@@ -164,13 +185,18 @@ section {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  padding: 1.75rem;
+  padding: 1.5rem;
   transition: all 0.3s ease;
 }
 
+@media (min-width: 768px) {
+  .card {
+    padding: 2rem;
+  }
+}
+
 .card:hover {
-  border-color: var(--color-border-hover);
-  transform: translateY(-2px);
+  border-color: var(--color-accent)/30;
 }
 
 /* Badge styles - increased padding */
@@ -241,7 +267,7 @@ section {
   color: var(--color-text);
 }
 
-/* Gradient text - cyan to purple */
+/* Gradient text - cyan to warm gold */
 .gradient-text {
   background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
   -webkit-background-clip: text;
@@ -266,4 +292,48 @@ section {
 
 .nav-link:hover {
   color: var(--color-text);
+}
+
+/* Tech skill badges with proper icon spacing */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.625rem 0.375rem 0.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+/* Smaller badges for interests */
+.interest-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.interest-badge:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text);
+}
+
+.skill-badge:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-text);
+  box-shadow: 0 0 15px rgba(212, 165, 116, 0.15);
+}
+
+.skill-badge svg {
+  flex-shrink: 0;
 }

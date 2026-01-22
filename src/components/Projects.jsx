@@ -54,7 +54,7 @@ const Projects = () => {
       <div className="container">
         <AnimatedSection>
           <h2 className="section-header">
-            <span className="section-number">04.</span>
+            <span className="section-number">05.</span>
             Featured Projects
           </h2>
         </AnimatedSection>

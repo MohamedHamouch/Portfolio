@@ -4,31 +4,29 @@ import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi';
 const experiences = [
   {
     title: 'Full Stack Developer Intern',
-    company: 'Company Name',
-    location: 'City, Country',
-    period: 'Month 2024 - Month 2024',
-    duration: '6 months',
+    company: 'Pepperworld',
+    location: 'Morocco (Onsite)',
+    period: 'June - August 2025',
     description: [
-      'Developed and maintained web applications using React and Spring Boot',
-      'Collaborated with the team to implement new features and fix bugs',
-      'Participated in code reviews and agile development processes',
-      'Worked on database design and optimization with PostgreSQL',
+      'Developed a comprehensive web application for agricultural activity management and tracking',
+      'Built responsive front-end interfaces using Nuxt.js and Tailwind CSS',
+      'Implemented robust backend APIs with Laravel framework',
+      'Designed and optimized MySQL database for efficient data management',
     ],
-    technologies: ['React', 'Spring Boot', 'PostgreSQL', 'Docker', 'Git'],
+    technologies: ['Laravel', 'Nuxt.js', 'Tailwind CSS', 'MySQL'],
   },
   {
     title: 'Web Developer Intern',
-    company: 'Company Name',
-    location: 'City, Country',
-    period: 'Month 2023 - Month 2023',
-    duration: '3 months',
+    company: 'TIC Escort',
+    location: 'Morocco (Remote)',
+    period: 'September 2020',
     description: [
-      'Built responsive user interfaces with HTML, CSS, and JavaScript',
-      'Implemented backend functionality using PHP and Laravel',
+      'Developed a professional company presentation website',
+      'Built responsive layouts using HTML, CSS, and Bootstrap',
+      'Implemented dynamic features with PHP and JavaScript',
       'Managed database operations with MySQL',
-      'Learned agile methodologies and team collaboration',
     ],
-    technologies: ['Laravel', 'PHP', 'MySQL', 'Bootstrap', 'JavaScript'],
+    technologies: ['HTML', 'CSS', 'PHP', 'JavaScript', 'Bootstrap', 'MySQL'],
   },
 ];
 
@@ -43,61 +41,61 @@ const Experience = () => {
           </h2>
         </AnimatedSection>
 
-        <div className="max-w-4xl">
+        <div className="max-w-4xl mx-auto">
           <div className="relative">
-            {/* Timeline line - amber gradient */}
-            <div className="absolute left-5 md:left-6 top-3 bottom-3 w-0.5 bg-gradient-to-b from-[var(--color-amber)] via-[var(--color-amber)]/50 to-transparent" />
+            {/* Timeline line */}
+            <div className="absolute w-0.5 bg-gradient-to-b from-[var(--color-secondary)] via-[var(--color-secondary)]/50 to-transparent" style={{ left: '0.5625rem', top: '1.25rem', bottom: '1.5rem' }} />
 
             {experiences.map((exp, index) => (
               <AnimatedSection key={index} delay={index * 0.15}>
-                <div className="relative pl-14 md:pl-16 pb-14 last:pb-0">
-                  {/* Timeline dot - amber */}
+                <div className="relative" style={{ paddingLeft: '2.5rem', paddingBottom: index === experiences.length - 1 ? '0' : '1.5rem' }}>
+                  {/* Timeline dot */}
                   <div 
-                    className="absolute left-2 md:left-3 top-2 w-7 h-7 rounded-full flex items-center justify-center bg-[var(--color-bg)] border-2 border-[var(--color-amber)]"
-                    style={{ boxShadow: '0 0 15px rgba(251, 191, 36, 0.3)' }}
+                    className="w-5 h-5 rounded-full flex items-center justify-center bg-[var(--color-bg)] border-2 border-[var(--color-secondary)]"
+                    style={{ position: 'absolute', left: '0.3125rem', top: '0.5rem', boxShadow: '0 0 12px rgba(212, 165, 116, 0.2)' }}
                   >
-                    <FiBriefcase size={12} className="text-[var(--color-amber)]" />
+                    <FiBriefcase size={10} className="text-[var(--color-secondary)]" />
                   </div>
 
-                  <div className="card">
+                  <div style={{ padding: '1rem' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl transition-all duration-300">
                     {/* Header */}
-                    <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
+                    <div className="flex flex-wrap items-start justify-between gap-3" style={{ marginBottom: '0.75rem' }}>
                       <div>
-                        <h3 className="text-xl font-bold text-[var(--color-text)] mb-2">
+                        <h3 className="text-base font-bold text-[var(--color-text)]" style={{ marginBottom: '0.25rem' }}>
                           {exp.title}
                         </h3>
-                        <p className="text-lg font-medium text-[var(--color-amber)]">
+                        <p className="text-sm font-medium text-[var(--color-secondary)]">
                           {exp.company}
                         </p>
                       </div>
-                      <div className="text-right space-y-2">
-                        <div className="flex items-center gap-2 text-[var(--color-text-muted)] text-base">
-                          <FiCalendar size={16} className="text-[var(--color-amber)]" />
+                      <div className="text-right" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                        <div className="flex items-center gap-1.5 text-[var(--color-text-muted)] text-sm">
+                          <FiCalendar size={12} className="text-[var(--color-secondary)]" />
                           <span>{exp.period}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-[var(--color-text-muted)] text-base">
-                          <FiMapPin size={16} className="text-[var(--color-amber)]" />
+                        <div className="flex items-center gap-1.5 text-[var(--color-text-muted)] text-sm">
+                          <FiMapPin size={12} className="text-[var(--color-secondary)]" />
                           <span>{exp.location}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <ul className="space-y-3 mb-6">
+                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '0.75rem' }}>
                       {exp.description.map((item, i) => (
-                        <li key={i} className="flex items-start gap-4 text-base text-[var(--color-text-muted)]">
-                          <span className="text-[var(--color-amber)] mt-1">▹</span>
+                        <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-muted)]">
+                          <span className="text-[var(--color-secondary)] mt-0.5 text-xs">▹</span>
                           <span className="leading-relaxed">{item}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-1.5 border-t border-[var(--color-border)]" style={{ paddingTop: '0.65rem' }}>
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1.5 text-sm font-mono rounded-md bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text-muted)]"
+                          className="interest-badge"
                         >
                           {tech}
                         </span>

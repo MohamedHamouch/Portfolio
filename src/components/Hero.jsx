@@ -20,13 +20,13 @@ const Hero = () => {
       />
 
       <div className="container relative z-10 px-6 flex flex-col items-center text-center">
-        {/* Greeting with coral accent */}
+        {/* Greeting with warm gold accent */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-mono text-base md:text-lg"
-          style={{ marginBottom: '0.75rem', color: '#ff6b6b' }}
+          style={{ marginBottom: '0.75rem', color: '#d4a574' }}
         >
           Hello, I'm
         </motion.p>
@@ -91,7 +91,7 @@ const Hero = () => {
           style={{ gap: '1rem' }}
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Mohamedhamouch"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
@@ -100,7 +100,7 @@ const Hero = () => {
             <FiGithub size={22} />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/hamouch-mohamed"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
@@ -109,7 +109,7 @@ const Hero = () => {
             <FiLinkedin size={22} />
           </a>
           <a
-            href="mailto:your@email.com"
+            href="mailto:med10hamouch@gmail.com"
             className="p-3 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all hover:scale-110"
             aria-label="Email"
           >

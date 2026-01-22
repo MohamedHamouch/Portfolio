@@ -13,60 +13,85 @@ const About = () => {
 
         <div className="grid md:grid-cols-5 gap-12 items-start">
           <AnimatedSection className="md:col-span-3" delay={0.1}>
-            <div className="space-y-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
+            <div className="space-y-5 text-base text-[var(--color-text-muted)] leading-relaxed">
               <p>
-                I'm a passionate <span className="text-[var(--color-text)] font-medium">Full Stack Developer</span> with 
-                expertise in building web applications from concept to deployment. I enjoy working 
-                with modern frameworks and technologies to create efficient, scalable solutions.
+                I'm a passionate <span className="text-[var(--color-text)] font-medium">Full Stack Developer</span> based in Agadir, Morocco, 
+                currently pursuing my studies at <span className="text-[var(--color-accent)]">YouCode - UM6P</span>. I specialize in building 
+                web applications from concept to deployment using modern technologies.
               </p>
               <p>
-                My journey in software development started with a curiosity for how things work 
-                on the web. Today, I specialize in both front-end and back-end development, 
-                with a strong focus on clean code, best practices, and user experience.
+                My journey includes hands-on experience developing real-world applications, from agricultural 
+                management systems to corporate websites. I'm passionate about clean code, elegant solutions, 
+                and continuously expanding my technical skills.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies, contributing 
-                to open-source projects, or continuously learning to stay updated with the 
-                ever-evolving tech landscape.
+                Beyond coding, I enjoy exploring philosophy, playing chess, and practicing MMA. These interests 
+                help me develop strategic thinking and discipline that I bring to my development work.
               </p>
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.2} className="md:col-span-2">
-            <div className="card">
-              <h3 className="font-mono text-base text-[var(--color-amber)] mb-6 font-semibold">
-                Quick Facts
-              </h3>
-              <ul className="space-y-5">
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--color-accent)] text-lg mt-0.5">▹</span>
-                  <div>
-                    <span className="text-[var(--color-text)] font-medium block">Location</span>
-                    <span className="text-[var(--color-text-muted)]">Your City, Country</span>
+            <div className="flex flex-col gap-3">
+              {/* Quick Info */}
+              <div style={{ padding: '0.65rem', borderLeftWidth: '3px', borderLeftColor: 'var(--color-secondary)' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl">
+                <h3 className="font-mono text-sm text-[var(--color-accent)] mb-4 font-semibold">
+                  Quick Info
+                </h3>
+                <div className="space-y-2.5 text-sm">
+                  <div className="flex justify-between gap-4">
+                    <span className="text-[var(--color-text-muted)]">Location</span>
+                    <span className="text-[var(--color-text)]">Agadir, Morocco</span>
                   </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--color-accent)] text-lg mt-0.5">▹</span>
-                  <div>
-                    <span className="text-[var(--color-text)] font-medium block">Experience</span>
-                    <span className="text-[var(--color-text-muted)]">X+ years in development</span>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-[var(--color-text-muted)]">Focus</span>
+                    <span className="text-[var(--color-text)]">Full Stack Development</span>
                   </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--color-accent)] text-lg mt-0.5">▹</span>
-                  <div>
-                    <span className="text-[var(--color-text)] font-medium block">Focus</span>
-                    <span className="text-[var(--color-text-muted)]">Full Stack Development</span>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-[var(--color-text-muted)]">Education</span>
+                    <span className="text-[var(--color-text)]">YouCode - UM6P</span>
                   </div>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--color-accent)] text-lg mt-0.5">▹</span>
-                  <div>
-                    <span className="text-[var(--color-text)] font-medium block">Languages</span>
-                    <span className="text-[var(--color-text-muted)]">French, English</span>
+                </div>
+              </div>
+
+              {/* Languages */}
+              <div style={{ padding: '0.65rem', borderLeftWidth: '3px', borderLeftColor: 'var(--color-secondary)' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl">
+                <h3 className="font-mono text-sm text-[var(--color-accent)] mb-4 font-semibold">
+                  Languages
+                </h3>
+                <div className="space-y-2.5 text-sm">
+                  <div className="flex justify-between gap-4">
+                    <span className="text-[var(--color-text-muted)]">Arabic</span>
+                    <span className="text-[var(--color-text)]">Native</span>
                   </div>
-                </li>
-              </ul>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-[var(--color-text-muted)]">Tamazight</span>
+                    <span className="text-[var(--color-text)]">Native</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-[var(--color-text-muted)]">French</span>
+                    <span className="text-[var(--color-text)]">Intermediate (B2)</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-[var(--color-text-muted)]">English</span>
+                    <span className="text-[var(--color-text)]">Intermediate (B2)</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Interests */}
+              <div style={{ padding: '0.65rem', borderLeftWidth: '3px', borderLeftColor: 'var(--color-secondary)' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl">
+                <h3 className="font-mono text-sm text-[var(--color-accent)] mb-4 font-semibold">
+                  Interests
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {['Computer Science', 'Philosophy', 'Poetry', 'Chess', 'Football', 'MMA'].map((interest) => (
+                    <span key={interest} className="interest-badge">
+                      {interest}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </AnimatedSection>
         </div>

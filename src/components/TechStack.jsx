@@ -104,54 +104,57 @@ const TechStack = () => {
           </h2>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
           {skillCategories.map((category, categoryIndex) => (
             <AnimatedSection key={category.title} delay={categoryIndex * 0.08}>
-              <div className="card h-full">
-                <h3 className="font-mono text-base font-semibold mb-6" style={{ color: category.title === 'Back-end' || category.title === 'Testing & Quality' ? 'var(--color-amber)' : 'var(--color-text)' }}>
+              <div>
+                <h3 className="font-mono text-sm font-semibold mb-4 text-[var(--color-accent)]">
                   {category.title}
                 </h3>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className="flex items-center bg-[var(--color-bg)] rounded-lg border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-all cursor-default group"
-                      style={{ padding: '12px 20px', gap: '12px' }}
-                    >
-                      <skill.icon
-                        size={18}
-                        style={{ color: skill.color, flexShrink: 0 }}
-                      />
-                      <span className="text-sm text-[var(--color-text-muted)] group-hover:text-[var(--color-text)] transition-colors whitespace-nowrap">
-                        {skill.name}
-                      </span>
+                    <div key={skill.name} className="skill-badge">
+                      <skill.icon size={14} style={{ color: skill.color }} />
+                      <span>{skill.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </AnimatedSection>
           ))}
-        </div>
 
-        {/* Design & Analysis Section */}
-        <AnimatedSection delay={0.5} className="mt-8">
-          <div className="card">
-            <h3 className="font-mono text-base font-semibold mb-6 text-[var(--color-text)]">
-              Analysis & Design
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {['UML', 'Merise', 'Relational Modeling', 'System Design', 'ERD'].map((item) => (
-                <span
-                  key={item}
-                  className="bg-[var(--color-bg)] rounded-lg border border-[var(--color-border)] text-sm text-[var(--color-text-muted)] hover:border-[var(--color-border-hover)] hover:text-[var(--color-text)] transition-all cursor-default"
-                  style={{ padding: '12px 20px' }}
-                >
-                  {item}
-                </span>
-              ))}
+          {/* Analysis & Design */}
+          <AnimatedSection delay={0.5}>
+            <div>
+              <h3 className="font-mono text-sm font-semibold mb-4 text-[var(--color-accent)]">
+                Analysis & Design
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['UML', 'Merise', 'Relational Modeling', 'ERD'].map((item) => (
+                  <span key={item} className="skill-badge">
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
+
+          {/* Certifications */}
+          <AnimatedSection delay={0.6}>
+            <div>
+              <h3 className="font-mono text-sm font-semibold mb-4 text-[var(--color-accent)]">
+                Certifications
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['HackerRank SQL Advanced', 'JavaScript Intermediate', 'Java Basic'].map((item) => (
+                  <span key={item} className="skill-badge">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
       </div>
     </section>
   );

@@ -19,10 +19,9 @@ function App() {
         <About />
         <TechStack />
         <Experience />
-        <Projects />
+        <Education />
+        {/* <Projects /> */}
         <CV />
-        {/* <Education /> */}
-        {/* <Languages /> */}
         <Contact />
       </main>
       <Footer />
