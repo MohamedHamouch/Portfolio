@@ -77,8 +77,8 @@ const Hero = () => {
           <a href="#contact" className="btn-primary text-base px-7 py-3.5">
             Get in Touch
           </a>
-          <a href="#projects" className="btn-secondary text-base px-7 py-3.5">
-            View Projects
+          <a href="#cv" className="btn-secondary text-base px-7 py-3.5">
+            View Resume
           </a>
         </motion.div>
 

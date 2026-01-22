@@ -5,7 +5,6 @@ const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -119,75 +118,76 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[var(--color-surface)] border-t border-[var(--color-border)]">
-          <div className="container mx-auto px-6 py-6 flex flex-col gap-6">
-            {/* Navigation Links */}
-            <div className="flex flex-col gap-3">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-lg transition-colors px-2 py-1"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-
-            {/* Divider */}
-            <div className="h-px bg-[var(--color-border)]"></div>
-
-            {/* Contact Info */}
-            <div className="flex flex-col gap-3">
+      <div 
+        className={`lg:hidden fixed inset-0 top-[72px] bg-[var(--color-bg)] z-40 transition-transform duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div style={{ padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', height: '100%' }}>
+          {/* Navigation Links */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {navItems.map((item) => (
               <a
-                href="mailto:med10hamouch@gmail.com"
-                className="flex items-center gap-3 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-sm transition-colors"
+                key={item.name}
+                href={item.href}
+                className="text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
+                style={{ fontSize: '1.25rem', fontWeight: '500', padding: '0.75rem 0', borderBottom: '1px solid var(--color-border)' }}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                <FiMail className="text-lg" />
-                <span>med10hamouch@gmail.com</span>
+                {item.name}
               </a>
+            ))}
+          </div>
 
-              <a
-                href="tel:+212667313172"
-                className="flex items-center gap-3 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-sm transition-colors"
-              >
-                <FiPhone className="text-lg" />
-                <span>+212 667-313172</span>
-              </a>
+          {/* Contact Info */}
+          <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <a
+              href="mailto:med10hamouch@gmail.com"
+              className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.95rem' }}
+            >
+              <FiMail size={18} />
+              <span>med10hamouch@gmail.com</span>
+            </a>
 
-              <div className="flex items-center gap-3 text-[var(--color-text-muted)] text-sm">
-                <FiMapPin className="text-lg" />
-                <span>Agadir, Maroc</span>
-              </div>
-            </div>
+            <a
+              href="tel:+212667313172"
+              className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.95rem' }}
+            >
+              <FiPhone size={18} />
+              <span>+212 667-313172</span>
+            </a>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-4 pt-2">
-              <a
-                href="https://github.com/Mohamedhamouch"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-sm transition-colors"
-              >
-                <FiGithub className="text-xl" />
-                <span>@Mohamedhamouch</span>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/hamouch-mohamed"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-sm transition-colors"
-              >
-                <FiLinkedin className="text-xl" />
-                <span>LinkedIn</span>
-              </a>
+            <div className="text-[var(--color-text-muted)]" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.95rem' }}>
+              <FiMapPin size={18} />
+              <span>Agadir, Morocco</span>
             </div>
           </div>
+
+          {/* Social Links */}
+          <div style={{ marginTop: 'auto', paddingTop: '2rem', display: 'flex', gap: '1rem' }}>
+            <a
+              href="https://github.com/Mohamedhamouch"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+              style={{ padding: '0.75rem', border: '1px solid var(--color-border)', borderRadius: '12px' }}
+            >
+              <FiGithub size={22} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/hamouch-mohamed"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+              style={{ padding: '0.75rem', border: '1px solid var(--color-border)', borderRadius: '12px' }}
+            >
+              <FiLinkedin size={22} />
+            </a>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

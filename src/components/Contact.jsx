@@ -44,7 +44,7 @@ const Contact = () => {
         <AnimatedSection delay={0.15}>
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
             gap: '1rem',
             maxWidth: '1000px',
             margin: '0 auto'
@@ -57,7 +57,7 @@ const Contact = () => {
                 rel={link.name !== 'Email' ? 'noopener noreferrer' : undefined}
                 className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl group hover:border-[var(--color-accent)] transition-all"
                 style={{ 
-                  padding: '1.25rem 1.5rem',
+                  padding: '1rem 1.25rem',
                   textDecoration: 'none',
                   display: 'flex',
                   flexDirection: 'column',
