@@ -33,15 +33,27 @@ const CV = () => {
                     Download my resume for a complete overview of my skills and experience.
                   </p>
                   
-                  <a
-                    href="/Hamouch_Mohamed_Resume.pdf"
-                    download="Hamouch_Mohamed_Resume.pdf"
-                    className="btn-primary inline-flex"
-                    style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem' }}
-                  >
-                    <FiDownload size={16} />
-                    <span>Download PDF</span>
-                  </a>
+                  <div className="flex flex-wrap items-center justify-center gap-3">
+                    <a
+                      href="/english_cv.pdf"
+                      download="Mohamed_Hamouch_CV_EN.pdf"
+                      className="btn-primary inline-flex items-center gap-2"
+                      style={{ fontSize: '0.875rem', padding: '0.75rem 1.25rem' }}
+                    >
+                      <FiDownload size={16} />
+                      <span>English CV (EN)</span>
+                    </a>
+                    
+                    <a
+                      href="/french_cv.pdf"
+                      download="Mohamed_Hamouch_CV_FR.pdf"
+                      className="btn-secondary inline-flex items-center gap-2"
+                      style={{ fontSize: '0.875rem', padding: '0.75rem 1.25rem' }}
+                    >
+                      <FiDownload size={16} />
+                      <span>French CV (FR)</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
