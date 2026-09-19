@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://medham.vercel.app/sitemap.xml
