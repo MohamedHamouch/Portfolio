@@ -3,8 +3,8 @@ import { FiMenu, FiX, FiFileText, FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedi
 
 const navItems = [
   { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
+  { name: 'Skills', href: '#skills' },
   { name: 'Education', href: '#education' },
   { name: 'Resume', href: '#cv' },
   { name: 'Contact', href: '#contact' },

@@ -153,11 +153,11 @@ const skillCategories = [
 
 const TechStack = () => {
   return (
-    <section id="skills">
+    <section id="skills" className="bg-[var(--color-surface)]/50">
       <div className="container">
         <AnimatedSection>
           <h2 className="section-header">
-            <span className="section-number">02.</span>
+            <span className="section-number">03.</span>
             Skills & Technologies
           </h2>
         </AnimatedSection>

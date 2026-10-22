@@ -45,11 +45,11 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="bg-[var(--color-surface)]/50">
+    <section id="experience">
       <div className="container">
         <AnimatedSection>
           <h2 className="section-header">
-            <span className="section-number">03.</span>
+            <span className="section-number">02.</span>
             Experience
           </h2>
         </AnimatedSection>
