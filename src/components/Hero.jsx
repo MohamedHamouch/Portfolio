@@ -61,7 +61,7 @@ const Hero = () => {
           className="text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-[var(--color-text-muted)]"
           style={{ marginBottom: '2.5rem' }}
         >
-          I build robust, scalable web applications with modern technologies.
+          I build robust, scalable web applications with modern technologies.{' '}
           <br className="hidden md:block" />
           Passionate about clean code, elegant solutions, and continuous learning.
         </motion.p>
