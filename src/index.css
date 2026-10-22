@@ -121,26 +121,26 @@
 
   /* Section spacing */
   section {
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
     position: relative;
     z-index: 1;
   }
 
   @media (min-width: 640px) {
     section {
-      padding: 5rem 1.5rem;
+      padding: 4rem 1.5rem;
     }
   }
 
   @media (min-width: 768px) {
     section {
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
     }
   }
 
   @media (min-width: 1024px) {
     section {
-      padding: 8rem 3rem;
+      padding: 6rem 3rem;
     }
   }
 }
