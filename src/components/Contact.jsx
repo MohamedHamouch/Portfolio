@@ -33,7 +33,7 @@ const Contact = () => {
   const resume = resumes.find((r) => r.code === resumeCode);
 
   return (
-    <section id="contact">
+    <section id="contact" className="bg-[var(--color-surface)]/50">
       <div className="container">
         <AnimatedSection>
           <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
