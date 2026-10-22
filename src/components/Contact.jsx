@@ -46,6 +46,14 @@ const Contact = () => {
             <p className="text-[var(--color-text-muted)] leading-relaxed" style={{ maxWidth: '600px', fontSize: '1rem', marginLeft: 'auto', marginRight: 'auto' }}>
               I'm always open to discussing new opportunities, creative projects, or partnerships.
             </p>
+            <a
+              href="mailto:med10hamouch@gmail.com"
+              className="btn-primary inline-flex"
+              style={{ marginTop: '2rem' }}
+            >
+              <FiMail size={18} />
+              <span>Send Message</span>
+            </a>
           </div>
         </AnimatedSection>
 
@@ -186,22 +194,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Bottom CTA */}
-        <AnimatedSection delay={0.4}>
-          <div className="text-center" style={{ marginTop: '3rem', padding: '2rem' }}>
-            <p className="text-[var(--color-text-muted)]" style={{ marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-              Have a project in mind? Let's make it happen.
-            </p>
-            <a
-              href="mailto:med10hamouch@gmail.com"
-              className="btn-primary inline-flex"
-            >
-              <FiMail size={18} />
-              <span>Send Message</span>
-            </a>
           </div>
         </AnimatedSection>
       </div>
