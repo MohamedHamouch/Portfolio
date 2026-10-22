@@ -7,7 +7,7 @@ const educationData = [
     institution: 'YouCode - UM6P',
     location: 'Morocco',
     year: '2024 - 2026',
-    description: 'Intensive full-stack development program covering modern web technologies, best practices, and real-world project experience.',
+    description: 'Intensive full-stack development program covering modern web technologies, best practices, and real-world project experience. Completed with an end-of-studies internship at YADAG under a YouCode internship agreement.',
   },
   {
     degree: 'Mathematics & Computer Science',
