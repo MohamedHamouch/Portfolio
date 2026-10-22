@@ -5,7 +5,6 @@ import About from './components/About';
 import TechStack from './components/TechStack';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
-import CV from './components/CV';
 import Education from './components/Education';
 import Languages from './components/Languages';
 import Contact from './components/Contact';
@@ -22,7 +21,6 @@ function App() {
         <Experience />
         <Education />
         {/* <Projects /> */}
-        <CV />
         <Contact />
       </main>
       <Footer />

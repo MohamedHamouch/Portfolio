@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import AnimatedSection from './AnimatedSection';
-import { FiMail, FiGithub, FiLinkedin, FiArrowRight } from 'react-icons/fi';
+import { FiMail, FiGithub, FiLinkedin, FiArrowRight, FiFileText, FiExternalLink, FiDownload } from 'react-icons/fi';
 
 const contactLinks = [
   {
@@ -22,7 +23,16 @@ const contactLinks = [
   },
 ];
 
+const resumes = [
+  { code: 'EN', language: 'English', href: '/english_cv.pdf', fileName: 'Mohamed_Hamouch_CV_EN.pdf' },
+  { code: 'FR', language: 'Français', href: '/french_cv.pdf', fileName: 'Mohamed_Hamouch_CV_FR.pdf' },
+];
+
 const Contact = () => {
+
+  const [resumeCode, setResumeCode] = useState('EN');
+  const resume = resumes.find((r) => r.code === resumeCode);
+
   return (
     <section id="contact">
       <div className="container">
@@ -112,9 +122,84 @@ const Contact = () => {
           </div>
         </AnimatedSection>
 
-        {/* Bottom CTA */}
+        {/* Resume — part of this closing section rather than its own, so the page
+            ends on one centred block. Keeps id="cv" for the navbar and hero links. */}
         <AnimatedSection delay={0.3}>
-          <div className="text-center" style={{ marginTop: '3rem', padding: '2rem', borderTop: '1px solid var(--color-border)' }}>
+          <div id="cv" className="scroll-mt-24 text-center" style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--color-border)' }}>
+            <div
+              className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl transition-colors duration-300 hover:border-[var(--color-border-hover)]"
+              style={{ maxWidth: '1000px', margin: '0 auto' }}
+            >
+              <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-8 text-left">
+                {/* Two stacked pages: one per language */}
+                <div className="relative w-16 h-20 shrink-0 mx-auto md:mx-0" aria-hidden="true">
+                  <div className="absolute inset-0 rounded-lg border border-[var(--color-border-hover)] bg-[var(--color-surface-hover)] rotate-[-8deg] translate-x-[-6px]" />
+                  <div className="absolute inset-0 rounded-lg border border-[var(--color-border-hover)] bg-[var(--color-bg)] flex items-center justify-center">
+                    <FiFileText size={28} className="text-[var(--color-secondary)]" />
+                  </div>
+                </div>
+
+                <div className="flex-1 min-w-0 text-center md:text-left">
+                  <h3 className="text-xl font-bold text-[var(--color-text)] mb-1">Resume</h3>
+                  <p className="text-sm text-[var(--color-text-muted)] mb-2">
+                    Full Stack Developer · Laravel, Next.js, Spring Boot, AWS
+                  </p>
+                  <p className="text-xs font-mono text-[var(--color-secondary)]">PDF · English &amp; French</p>
+                </div>
+
+                <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
+                  <div
+                    className="inline-flex p-1 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)]"
+                    role="group"
+                    aria-label="Resume language"
+                  >
+                    {resumes.map((r) => (
+                      <button
+                        key={r.code}
+                        type="button"
+                        onClick={() => setResumeCode(r.code)}
+                        aria-pressed={r.code === resumeCode}
+                        title={r.language}
+                        className={`px-3 py-1 rounded-md font-mono text-xs font-semibold transition-colors cursor-pointer ${
+                          r.code === resumeCode
+                            ? 'bg-[var(--color-surface-hover)] text-[var(--color-accent)]'
+                            : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
+                        }`}
+                      >
+                        {r.code}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href={resume.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-secondary px-4 py-2.5 text-sm"
+                      aria-label={`View ${resume.language} resume`}
+                    >
+                      <FiExternalLink size={16} />
+                      <span>View</span>
+                    </a>
+                    <a
+                      href={resume.href}
+                      download={resume.fileName}
+                      className="btn-primary px-4 py-2.5 text-sm"
+                      aria-label={`Download ${resume.language} resume`}
+                    >
+                      <FiDownload size={16} />
+                      <span>Download</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Bottom CTA */}
+        <AnimatedSection delay={0.4}>
+          <div className="text-center" style={{ marginTop: '3rem', padding: '2rem' }}>
             <p className="text-[var(--color-text-muted)]" style={{ marginBottom: '1.5rem', fontSize: '0.95rem' }}>
               Have a project in mind? Let's make it happen.
             </p>
