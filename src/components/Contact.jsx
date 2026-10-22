@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AnimatedSection from './AnimatedSection';
-import { FiMail, FiGithub, FiLinkedin, FiArrowRight, FiFileText, FiExternalLink, FiDownload } from 'react-icons/fi';
+import { FiMail, FiGithub, FiLinkedin, FiArrowUpRight, FiFileText, FiExternalLink, FiDownload } from 'react-icons/fi';
 
 const contactLinks = [
   {
@@ -11,13 +11,13 @@ const contactLinks = [
   },
   {
     name: 'GitHub',
-    value: 'github.com/Mohamedhamouch',
+    value: 'Mohamedhamouch',
     href: 'https://github.com/Mohamedhamouch',
     icon: FiGithub,
   },
   {
     name: 'LinkedIn',
-    value: 'linkedin.com/in/hamouch-mohamed',
+    value: 'hamouch-mohamed',
     href: 'https://www.linkedin.com/in/hamouch-mohamed',
     icon: FiLinkedin,
   },
@@ -29,7 +29,6 @@ const resumes = [
 ];
 
 const Contact = () => {
-
   const [resumeCode, setResumeCode] = useState('EN');
   const resume = resumes.find((r) => r.code === resumeCode);
 
@@ -59,35 +58,22 @@ const Contact = () => {
             maxWidth: '1000px',
             margin: '0 auto'
           }}>
-            {contactLinks.map((link, index) => (
+            {contactLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 target={link.name !== 'Email' ? '_blank' : undefined}
                 rel={link.name !== 'Email' ? 'noopener noreferrer' : undefined}
                 className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl group hover:border-[var(--color-accent)] transition-all"
-                style={{ 
+                style={{
                   padding: '1rem 1.25rem',
                   textDecoration: 'none',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '0.75rem',
-                  position: 'relative',
-                  overflow: 'hidden'
+                  position: 'relative'
                 }}
               >
-                {/* Hover gradient effect */}
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: '3px',
-                  background: index === 0 ? 'var(--color-accent)' : index === 1 ? 'var(--color-secondary)' : 'var(--color-accent)',
-                  opacity: 0,
-                  transition: 'opacity 0.3s'
-                }} className="group-hover:opacity-100" />
-                
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ 
                     width: '44px', 
@@ -105,18 +91,24 @@ const Contact = () => {
                       className="text-[var(--color-accent)] group-hover:text-[var(--color-accent)]"
                     />
                   </div>
-                  <div style={{ minWidth: 0 }}>
+                  <div style={{ minWidth: 0, flex: 1 }}>
                     <p className="text-xs text-[var(--color-text-muted)]" style={{ marginBottom: '0.25rem' }}>
                       {link.name}
                     </p>
                     <p className="font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors" style={{ fontSize: '0.9rem', overflowWrap: 'anywhere' }}>
-                      {/* <wbr> lets a long URL wrap after its slash instead of mid-word */}
-                      {link.value.split('/').map((part, i) => (
-                        <span key={i}>{i > 0 && <>/<wbr /></>}{part}</span>
+                      {/* <wbr> so a too-narrow card breaks an address at the @, not mid-word */}
+                      {link.value.split('@').map((part, i) => (
+                        <span key={i}>{i > 0 && <><wbr />@</>}{part}</span>
                       ))}
                     </p>
                   </div>
                 </div>
+                {/* In the corner rather than in the row, so it takes no width from the value */}
+                <FiArrowUpRight
+                  size={16}
+                  aria-hidden="true"
+                  className="absolute top-3 right-3 text-[var(--color-text-muted)] transition-all duration-300 group-hover:text-[var(--color-accent)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
               </a>
             ))}
           </div>
