@@ -25,6 +25,8 @@ const educationData = [
   },
 ];
 
+const certifications = ['HackerRank SQL Advanced', 'JavaScript Intermediate', 'Java Basic'];
+
 const Education = () => {
   return (
     <section id="education">
@@ -72,6 +74,22 @@ const Education = () => {
               </AnimatedSection>
             ))}
           </div>
+
+          {/* pl-10 lines the row up with the timeline cards, not the timeline dots */}
+          <AnimatedSection delay={0.3}>
+            <div className="mt-10 pl-10">
+              <h3 className="font-mono text-sm font-semibold mb-4 text-[var(--color-accent)]">
+                Certifications
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {certifications.map((item) => (
+                  <span key={item} className="skill-badge">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
