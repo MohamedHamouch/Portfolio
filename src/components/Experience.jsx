@@ -4,6 +4,20 @@ import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi';
 const experiences = [
   {
     title: 'Full Stack Developer Intern',
+    company: 'YADAG',
+    location: 'Toronto, Canada (Remote)',
+    period: 'September 2026 - Present',
+    description: [
+      'Building features for an agricultural workforce management platform covering worker employment, onboarding, housing and training across multiple farms',
+      'Delivered end-to-end features such as worker transfers between farms, flight management and a recruitment pipeline, with a Laravel REST API and a Next.js + TypeScript front end using TanStack Query, Zustand, React Hook Form and Zod',
+      'Sent onboarding documents and training to workers over WhatsApp with Twilio, including scheduled re-sends and send logs',
+      'Worked with AWS Cognito for authentication, S3 for document storage and Textract for document OCR in a Python FastAPI service',
+      'Covered features with automated tests using Pest, Vitest, React Testing Library and Pytest',
+    ],
+    technologies: ['Next.js', 'TypeScript', 'TanStack Query', 'Zustand', 'Zod', 'Laravel', 'MySQL', 'Python', 'FastAPI', 'AWS', 'Twilio'],
+  },
+  {
+    title: 'Full Stack Developer Intern',
     company: 'Pepperworld',
     location: 'Morocco (Onsite)',
     period: 'June - August 2025',
