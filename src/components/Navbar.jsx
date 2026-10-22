@@ -5,6 +5,8 @@ const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
+  { name: 'Education', href: '#education' },
+  { name: 'Resume', href: '#cv' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -82,12 +84,14 @@ const Navbar = () => {
             <FiLinkedin />
           </a>
 
-          <div className="w-px h-6 bg-[var(--color-border)]"></div>
+          {/* Email, phone and location only from xl: between lg and xl the six nav
+              links leave no room, and all three are repeated in the hero and Contact. */}
+          <div className="hidden xl:block w-px h-6 bg-[var(--color-border)]"></div>
 
           {/* Email */}
           <a
             href="mailto:med10hamouch@gmail.com"
-            className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-sm transition-colors duration-300"
+            className="hidden xl:flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-sm transition-colors duration-300"
             aria-label="Email"
           >
             <FiMail className="text-base" />
@@ -96,14 +100,14 @@ const Navbar = () => {
           {/* Phone */}
           <a
             href="tel:+212667313172"
-            className="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-sm transition-colors duration-300"
+            className="hidden xl:flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-sm transition-colors duration-300"
             aria-label="Phone"
           >
             <FiPhone className="text-base" />
           </a>
 
           {/* Location */}
-          <div className="flex items-center gap-1.5 text-[var(--color-text-muted)] text-sm">
+          <div className="hidden xl:flex items-center gap-1.5 text-[var(--color-text-muted)] text-sm">
             <FiMapPin className="text-base" />
             <span>Agadir</span>
           </div>
