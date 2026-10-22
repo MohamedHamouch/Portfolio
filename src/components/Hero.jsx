@@ -19,7 +19,7 @@ const Hero = () => {
         }}
       />
 
-      <div className="container relative z-10 px-6 flex flex-col items-center text-center">
+      <div className="container relative z-10 flex flex-col items-center text-center">
         {/* Greeting with warm gold accent */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
