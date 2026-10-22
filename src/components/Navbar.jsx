@@ -23,13 +23,15 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 lg:px-12 transition-all duration-300 ${
         isScrolled
           ? 'bg-[var(--color-bg)]/95 backdrop-blur-md border-b border-[var(--color-border)]'
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+      {/* Side padding lives on <nav> and mirrors the `section` gutters in index.css,
+          so the logo lines up with the content below at every breakpoint. */}
+      <div className="container py-4 flex items-center justify-between">
         {/* Logo */}
         <a 
           href="#" 
@@ -119,7 +121,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div 
-        className={`lg:hidden fixed inset-0 top-[72px] bg-[var(--color-bg)] z-40 transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed inset-0 top-16 bg-[var(--color-bg)] z-40 transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
