@@ -166,6 +166,7 @@
   .section-header {
     font-size: 2rem;
     font-weight: 700;
+    line-height: 1.2;
     margin-bottom: 3rem;
     color: var(--color-text);
     display: flex;
