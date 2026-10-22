@@ -15,8 +15,9 @@ const About = () => {
           <AnimatedSection className="md:col-span-3" delay={0.1}>
             <div className="space-y-5 text-base text-[var(--color-text-muted)] leading-relaxed">
               <p>
-                I'm a passionate <span className="text-[var(--color-text)] font-medium">Full Stack Developer</span> based in Agadir, Morocco, 
-                currently pursuing my studies at <span className="text-[var(--color-accent)]">YouCode - UM6P</span>. I specialize in building 
+                I'm a passionate <span className="text-[var(--color-text)] font-medium">Full Stack Developer</span> based in Agadir, Morocco,
+                trained at <span className="text-[var(--color-accent)]">YouCode - UM6P</span> and currently interning remotely with
+                <span className="text-[var(--color-accent)]"> YADAG</span>, a Toronto-based company. I specialize in building
                 web applications from concept to deployment using modern technologies.
               </p>
               <p>
