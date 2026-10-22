@@ -29,7 +29,7 @@ const Contact = () => {
         <AnimatedSection>
           <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
             <p className="font-mono text-[var(--color-secondary)]" style={{ marginBottom: '0.75rem', fontSize: '0.875rem' }}>
-              06. What's Next?
+              05. What's Next?
             </p>
             <h2 className="font-bold text-[var(--color-text)]" style={{ marginBottom: '1rem', fontSize: '2.25rem' }}>
               Let's Connect
