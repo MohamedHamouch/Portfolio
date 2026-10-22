@@ -99,8 +99,11 @@ const Contact = () => {
                     <p className="text-xs text-[var(--color-text-muted)]" style={{ marginBottom: '0.25rem' }}>
                       {link.name}
                     </p>
-                    <p className="font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors\" style={{ fontSize: '0.9rem', wordBreak: 'break-all' }}>
-                      {link.value}
+                    <p className="font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors" style={{ fontSize: '0.9rem', overflowWrap: 'anywhere' }}>
+                      {/* <wbr> lets a long URL wrap after its slash instead of mid-word */}
+                      {link.value.split('/').map((part, i) => (
+                        <span key={i}>{i > 0 && <>/<wbr /></>}{part}</span>
+                      ))}
                     </p>
                   </div>
                 </div>
