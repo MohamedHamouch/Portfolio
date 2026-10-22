@@ -31,321 +31,329 @@
   --color-tertiary: #34d399;
 }
 
-/* Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/*
+ * Everything below lives in a cascade layer on purpose. Tailwind v4 puts its
+ * utilities in @layer utilities, and any rule outside a layer beats every
+ * layered rule regardless of specificity — an unlayered `* { padding: 0 }`
+ * silently cancelled every p-*, m-* and space-y-* class in the markup.
+ * (Tailwind's own preflight already does that reset, inside @layer base.)
+ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
+  body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem;
+  }
 
-body {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 1rem;
-}
+  /* Subtle gradient background with warm undertones */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.04), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 50%, rgba(212, 165, 116, 0.03), transparent),
+      radial-gradient(ellipse 60% 40% at 0% 80%, rgba(167, 139, 250, 0.02), transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-/* Subtle gradient background with warm undertones */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.04), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(212, 165, 116, 0.03), transparent),
-    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(167, 139, 250, 0.02), transparent);
-  pointer-events: none;
-  z-index: 0;
-}
+  /* Noise texture overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.015;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-/* Noise texture overlay */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.015;
-  pointer-events: none;
-  z-index: 0;
-}
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
 
-/* Monospace for dev emphasis */
-.font-mono {
-  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
-}
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 5px;
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 5px;
-}
+  /* Selection */
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
-}
+  /* Link base styles */
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
 
-/* Selection */
-::selection {
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-}
+  a:hover {
+    color: var(--color-accent-hover);
+  }
 
-/* Link base styles */
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-a:hover {
-  color: var(--color-accent-hover);
-}
-
-/* Section spacing */
-section {
-  padding: 4rem 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-@media (min-width: 640px) {
+  /* Section spacing */
   section {
-    padding: 5rem 1.5rem;
+    padding: 4rem 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 640px) {
+    section {
+      padding: 5rem 1.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    section {
+      padding: 6rem 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    section {
+      padding: 8rem 3rem;
+    }
   }
 }
 
-@media (min-width: 768px) {
-  section {
-    padding: 6rem 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  section {
-    padding: 8rem 3rem;
-  }
-}
-
-/* Container */
+/*
+ * Container — deliberately left unlayered. Tailwind v4 ships its own `container`
+ * utility (breakpoint max-widths, no centering); layered, it would win and every
+ * section would change width at each breakpoint.
+ */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
 
-/* Section Headers - Modern Design */
-.section-header {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  color: var(--color-text);
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  position: relative;
-  padding-bottom: 1rem;
-}
+@layer components {
+  /* Monospace for dev emphasis */
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  }
 
-.section-header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 3px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
-@media (min-width: 768px) {
+  /* Section Headers - Modern Design */
   .section-header {
-    font-size: 2.25rem;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    position: relative;
+    padding-bottom: 1rem;
   }
-}
 
-.section-number {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.25rem;
-  color: var(--color-accent);
-  font-weight: 600;
-}
+  .section-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--color-accent);
+    border-radius: 2px;
+  }
 
-/* Cards */
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-}
+  @media (min-width: 768px) {
+    .section-header {
+      font-size: 2.25rem;
+    }
+  }
 
-@media (min-width: 768px) {
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* Cards */
   .card {
-    padding: 2rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
   }
-}
 
-.card:hover {
-  border-color: var(--color-accent)/30;
-}
+  @media (min-width: 768px) {
+    .card {
+      padding: 2rem;
+    }
+  }
 
-/* Badge styles - increased padding */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.625rem 1rem;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  font-size: 0.9375rem;
-  color: var(--color-text-muted);
-  transition: all 0.25s ease;
-}
+  .card:hover {
+    border-color: var(--color-accent)/30;
+  }
 
-.badge:hover {
-  border-color: var(--color-border-hover);
-  color: var(--color-text);
-}
+  /* Badge styles - increased padding */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.625rem 1rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    transition: all 0.25s ease;
+  }
 
-.badge svg {
-  width: 18px;
-  height: 18px;
-}
+  .badge:hover {
+    border-color: var(--color-border-hover);
+    color: var(--color-text);
+  }
 
-/* Button styles - using white/neutral for primary */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.875rem 2rem;
-  background: var(--color-text);
-  color: var(--color-bg);
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
+  .badge svg {
+    width: 18px;
+    height: 18px;
+  }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
-  color: var(--color-bg);
-  background: var(--color-text);
-}
+  /* Button styles - using white/neutral for primary */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.875rem 2rem;
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
 
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.875rem 2rem;
-  background: transparent;
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+    color: var(--color-bg);
+    background: var(--color-text);
+  }
 
-.btn-secondary:hover {
-  border-color: var(--color-text);
-  transform: translateY(-2px);
-  color: var(--color-text);
-}
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.875rem 2rem;
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
 
-/* Gradient text - cyan to warm gold */
-.gradient-text {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+  .btn-secondary:hover {
+    border-color: var(--color-text);
+    transform: translateY(-2px);
+    color: var(--color-text);
+  }
 
-/* Divider with gradient */
-.divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
-  margin: 4rem 0;
-}
+  /* Gradient text - cyan to warm gold */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-/* Nav link styles */
-.nav-link {
-  color: var(--color-text-muted);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  transition: color 0.25s ease;
-}
+  /* Divider with gradient */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+    margin: 4rem 0;
+  }
 
-.nav-link:hover {
-  color: var(--color-text);
-}
+  /* Nav link styles */
+  .nav-link {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: color 0.25s ease;
+  }
 
-/* Tech skill badges with proper icon spacing */
-.skill-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.375rem 0.625rem 0.375rem 0.5rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  transition: all 0.25s ease;
-  cursor: default;
-}
+  .nav-link:hover {
+    color: var(--color-text);
+  }
 
-/* Smaller badges for interests */
-.interest-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.5rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 0.375rem;
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
-  transition: all 0.25s ease;
-  cursor: default;
-}
+  /* Tech skill badges with proper icon spacing */
+  .skill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.625rem 0.375rem 0.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    transition: all 0.25s ease;
+    cursor: default;
+  }
 
-.interest-badge:hover {
-  border-color: var(--color-border-hover);
-  color: var(--color-text);
-}
+  /* Smaller badges for interests */
+  .interest-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    transition: all 0.25s ease;
+    cursor: default;
+  }
 
-.skill-badge:hover {
-  border-color: var(--color-secondary);
-  color: var(--color-text);
-  box-shadow: 0 0 15px rgba(212, 165, 116, 0.15);
-}
+  .interest-badge:hover {
+    border-color: var(--color-border-hover);
+    color: var(--color-text);
+  }
 
-.skill-badge svg {
-  flex-shrink: 0;
+  .skill-badge:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-text);
+    box-shadow: 0 0 15px rgba(212, 165, 116, 0.15);
+  }
+
+  .skill-badge svg {
+    flex-shrink: 0;
+  }
 }
