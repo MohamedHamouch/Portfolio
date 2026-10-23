@@ -1,27 +1,29 @@
-# React + Vite
+# Mohamed Hamouch — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio of Mohamed Hamouch, Full Stack Developer based in Agadir, Morocco.
 
-Currently, two official plugins are available:
+**Live:** [medham.vercel.app](https://medham.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Sections
 
-## React Compiler
+- **About** — background, languages and interests
+- **Experience** — internships at YADAG, Pepperworld and TIC Escort
+- **Skills** — core stack and the wider set of tools I work with
+- **Education** — YouCode - UM6P, Faculty of Sciences Agadir, EST Agadir, plus certifications
+- **Contact** — email, GitHub, LinkedIn and my resume in English and French
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Running locally
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev      # start the dev server
+npm run build    # production build into dist/
+npm run lint     # ESLint
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Built with React, Vite and Tailwind CSS, deployed on Vercel.
 
-changement d’URL  
-&nbsp;&nbsp;&nbsp;&nbsp;↓  
-Guards  
-&nbsp;&nbsp;&nbsp;&nbsp;↓  
-Resolvers (récupération des données)  
-&nbsp;&nbsp;&nbsp;&nbsp;↓  
-Création du composant  
-&nbsp;&nbsp;&nbsp;&nbsp;↓  
-Rendu du template
+## Contact
 
+- LinkedIn: [hamouch-mohamed](https://www.linkedin.com/in/hamouch-mohamed)
+- GitHub: [Mohamedhamouch](https://github.com/Mohamedhamouch)
