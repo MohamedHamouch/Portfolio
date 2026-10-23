@@ -33,7 +33,7 @@ const Contact = () => {
   const resume = resumes.find((r) => r.code === resumeCode);
 
   return (
-    <section id="contact" className="bg-[var(--color-surface)]/50">
+    <section id="contact" className="section-band bg-[var(--color-surface)]/50">
       <div className="container">
         <AnimatedSection>
           <div style={{ marginBottom: '3rem', textAlign: 'center' }}>
@@ -126,10 +126,7 @@ const Contact = () => {
             ends on one centred block. Keeps id="cv" for the navbar and hero links. */}
         <AnimatedSection delay={0.3}>
           <div id="cv" className="scroll-mt-24 text-center" style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--color-border)' }}>
-            <div
-              className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl transition-colors duration-300 hover:border-[var(--color-border-hover)]"
-              style={{ maxWidth: '1000px', margin: '0 auto' }}
-            >
+            <div className="accent-card" style={{ maxWidth: '1000px', margin: '0 auto' }}>
               <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-8 text-left">
                 {/* Two stacked pages: one per language */}
                 <div className="relative w-16 h-20 shrink-0 mx-auto md:mx-0" aria-hidden="true">

@@ -5,9 +5,9 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Animated gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#22d3ee]/8 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#a855f7]/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-[#fbbf24]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#22d3ee]/8 rounded-full blur-3xl motion-safe:animate-pulse" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#a855f7]/6 rounded-full blur-3xl motion-safe:animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-[#fbbf24]/5 rounded-full blur-3xl motion-safe:animate-pulse" style={{ animationDelay: '2s' }} />
 
       {/* Subtle grid background */}
       <div
@@ -20,6 +20,27 @@ const Hero = () => {
       />
 
       <div className="container relative z-10 flex flex-col items-center text-center">
+        {/* Availability */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="inline-flex items-center gap-2.5 rounded-2xl sm:rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3.5 py-1.5 text-xs sm:text-sm text-left text-[var(--color-text-muted)]"
+          style={{ marginBottom: '1.75rem' }}
+        >
+          <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--color-tertiary)] opacity-60 motion-safe:animate-ping" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-tertiary)]" />
+          </span>
+          {/* Below sm the two halves sit on their own lines instead of wrapping mid-phrase */}
+          <span>
+            Open to full-time opportunities
+            <span className="hidden sm:inline"> · </span>
+            <br className="sm:hidden" />
+            Remote, hybrid or on-site
+          </span>
+        </motion.p>
+
         {/* Greeting with warm gold accent */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -61,9 +82,9 @@ const Hero = () => {
           className="text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-[var(--color-text-muted)]"
           style={{ marginBottom: '2.5rem' }}
         >
-          I build robust, scalable web applications with modern technologies.{' '}
+          I build full-stack web apps with Spring Boot, React and Laravel.{' '}
           <br className="hidden md:block" />
-          Passionate about clean code, elegant solutions, and continuous learning.
+          Currently building workforce software for farms at YADAG.
         </motion.p>
 
         {/* Buttons - grouped together */}

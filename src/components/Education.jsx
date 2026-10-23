@@ -1,5 +1,6 @@
 import AnimatedSection from './AnimatedSection';
-import { FiBookOpen } from 'react-icons/fi';
+import { FiBookOpen, FiArrowUpRight } from 'react-icons/fi';
+import { SiHackerrank } from 'react-icons/si';
 
 const educationData = [
   {
@@ -12,20 +13,24 @@ const educationData = [
   {
     degree: 'Mathematics & Computer Science',
     institution: 'Faculty of Sciences - Agadir',
-    location: 'Agadir, Morocco',
+    location: 'Morocco',
     year: '2021 - 2023',
     description: 'Foundation in mathematics, algorithms, and computer science fundamentals.',
   },
   {
     degree: 'DUT in Computer Engineering',
     institution: 'EST - Agadir',
-    location: 'Agadir, Morocco',
+    location: 'Morocco',
     year: '2019 - 2021',
     description: 'Technical diploma covering programming, databases, networking, and software development.',
   },
 ];
 
-const certifications = ['HackerRank SQL Advanced', 'JavaScript Intermediate', 'Java Basic'];
+const certifications = [
+  { name: 'SQL (Advanced)', url: 'https://www.hackerrank.com/certificates/e1501f71522a' },
+  { name: 'JavaScript (Intermediate)', url: 'https://www.hackerrank.com/certificates/3857368aa614' },
+  { name: 'Java (Basic)', url: 'https://www.hackerrank.com/certificates/6a113708c159' },
+];
 
 const Education = () => {
   return (
@@ -81,11 +86,31 @@ const Education = () => {
               <h3 className="font-mono text-sm font-semibold mb-4 text-[var(--color-accent)]">
                 Certifications
               </h3>
-              <div className="flex flex-wrap gap-2">
-                {certifications.map((item) => (
-                  <span key={item} className="skill-badge">
-                    {item}
-                  </span>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {certifications.map((cert) => (
+                  <a
+                    key={cert.url}
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${cert.name} certificate on HackerRank`}
+                    className="group relative flex items-center gap-3 p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl transition-all hover:border-[var(--color-accent)]"
+                  >
+                    <div className="w-10 h-10 shrink-0 flex items-center justify-center rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)]">
+                      <SiHackerrank size={18} style={{ color: '#2EC866' }} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs text-[var(--color-text-muted)]">HackerRank</p>
+                      <p className="text-sm font-medium text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">
+                        {cert.name}
+                      </p>
+                    </div>
+                    <FiArrowUpRight
+                      size={16}
+                      aria-hidden="true"
+                      className="absolute top-3 right-3 text-[var(--color-text-muted)] transition-all duration-300 group-hover:text-[var(--color-accent)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </a>
                 ))}
               </div>
             </div>

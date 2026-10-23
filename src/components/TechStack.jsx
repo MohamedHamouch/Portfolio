@@ -143,7 +143,7 @@ const skillCategories = [
 
 const TechStack = () => {
   return (
-    <section id="skills" className="bg-[var(--color-surface)]/50">
+    <section id="skills" className="section-band section-band-mirror bg-[var(--color-surface)]/50">
       <div className="container">
         <AnimatedSection>
           <h2 className="section-header">
@@ -153,7 +153,7 @@ const TechStack = () => {
         </AnimatedSection>
 
         <AnimatedSection>
-          <div className="mb-12">
+          <div className="accent-card p-5 md:p-6 mb-12">
             <h3 className="font-mono text-sm font-semibold mb-4 text-[var(--color-accent)]">
               Core stack
             </h3>
