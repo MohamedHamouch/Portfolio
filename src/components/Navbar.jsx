@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FiMenu, FiX, FiFileText, FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiMenu, FiX, FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin } from 'react-icons/fi';
 
 const navItems = [
   { name: 'About', href: '#about' },
@@ -33,22 +33,25 @@ const Navbar = () => {
     >
       {/* Side padding lives on <nav> and mirrors the `section` gutters in index.css,
           so the logo lines up with the content below at every breakpoint. */}
-      <div className="container py-4 flex items-center justify-between">
+      <div className="container h-16 flex items-center justify-between">
         {/* Logo */}
-        <a 
-          href="#" 
-          className="group relative font-mono text-2xl font-bold text-[var(--color-text)] hover:text-[var(--color-accent)] transition-all duration-300"
+        <a
+          href="#"
+          aria-label="Mohamed Hamouch, back to top"
+          className="group relative text-xl sm:text-2xl lg:text-xl xl:text-2xl font-bold text-[var(--color-text)]"
         >
-          <span className="relative z-10">
-            <span className="text-[var(--color-accent)]">&lt;</span>
-            Medham
-            <span className="text-[var(--color-accent)]">/&gt;</span>
+          {/* Same file as the favicon, so the tab and the navbar show one mark */}
+          <span className="relative z-10 flex items-center gap-2.5">
+            <img src="/favicon.svg" alt="" width="30" height="30" className="shrink-0" />
+            <span>
+              Mohamed <span className="font-normal text-[var(--color-text-muted)]">Hamouch</span>
+            </span>
           </span>
           <span className="absolute inset-0 bg-[var(--color-accent-glow)] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navItems.map((item) => (
             <a
               key={item.name}
