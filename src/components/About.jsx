@@ -14,12 +14,35 @@ const About = () => {
         <div className="grid md:grid-cols-5 gap-12 items-start">
           <AnimatedSection className="md:col-span-3" delay={0.1}>
             <div className="space-y-5 text-base text-[var(--color-text-muted)] leading-relaxed">
-              <p>
-                I'm a <span className="text-[var(--color-text)] font-medium">Full Stack Developer</span> based in Agadir, Morocco.
-                I trained at <span className="text-[var(--color-accent)]">YouCode - UM6P</span> and I'm completing my end-of-studies
-                internship remotely at <span className="text-[var(--color-accent)]">YADAG</span>, a Toronto company building
-                workforce software for farms.
-              </p>
+              {/* Phones: small photo floated so the intro wraps around it. sm+: photo beside
+                  the intro. flow-root contains the float on phones. */}
+              <div className="flow-root sm:flex sm:flex-row sm:items-center sm:gap-6">
+                {/* 480px source shown at 144px max: sharp on 2x+ screens. Explicit size avoids layout shift. */}
+                <div className="relative float-left w-22 h-22 mr-4 mt-1 mb-1.5 sm:float-none sm:m-0 shrink-0 sm:w-36 sm:h-36 rounded-2xl overflow-hidden border border-[var(--color-border)]">
+                  <img
+                    src="/avatar.webp"
+                    alt="Portrait of Mohamed Hamouch"
+                    width="144"
+                    height="144"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Vignette: darkens the light studio background toward the edges so the
+                      photo sits in the dark page, while the face in the centre stays clear */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0"
+                    style={{ background: 'radial-gradient(circle at 50% 42%, transparent 40%, rgba(10, 10, 15, 0.6) 100%)' }}
+                  />
+                </div>
+                <p>
+                  I'm a <span className="text-[var(--color-text)] font-medium">Full Stack Developer</span> based in Agadir, Morocco.
+                  I trained at <span className="text-[var(--color-accent)]">YouCode - UM6P</span> and I'm completing my end-of-studies
+                  internship remotely at <span className="text-[var(--color-accent)]">YADAG</span>, a Toronto company building
+                  workforce software for farms.
+                </p>
+              </div>
               <p>
                 Most of my work so far is in agriculture: at YADAG I build features across a Laravel API and a Next.js
                 front end, and at Pepperworld I built an activity-tracking app with Laravel and Nuxt. On the Java side,
