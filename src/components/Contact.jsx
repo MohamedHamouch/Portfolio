@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import AnimatedSection from './AnimatedSection';
-import { FiMail, FiGithub, FiLinkedin, FiArrowUpRight, FiFileText, FiExternalLink, FiDownload } from 'react-icons/fi';
+import { FiMail, FiGithub, FiLinkedin, FiArrowUpRight, FiFileText, FiExternalLink, FiDownload, FiCopy, FiCheck } from 'react-icons/fi';
+
+const EMAIL = 'med10hamouch@gmail.com';
 
 const contactLinks = [
   {
     name: 'Email',
-    value: 'med10hamouch@gmail.com',
-    href: 'mailto:med10hamouch@gmail.com',
+    value: EMAIL,
+    href: `mailto:${EMAIL}`,
     icon: FiMail,
   },
   {
@@ -31,6 +33,21 @@ const resumes = [
 const Contact = () => {
   const [resumeCode, setResumeCode] = useState('EN');
   const resume = resumes.find((r) => r.code === resumeCode);
+  // 'idle' | 'copied' | 'failed'
+  const [copyState, setCopyState] = useState('idle');
+
+  // mailto: does nothing for visitors on webmail or without a mail app, so offer
+  // the address itself. Clipboard can be refused (permissions, non-HTTPS); then
+  // show the address so it can still be copied by hand.
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopyState('copied');
+    } catch {
+      setCopyState('failed');
+    }
+    setTimeout(() => setCopyState('idle'), 2500);
+  };
 
   return (
     <section id="contact" className="section-band bg-[var(--color-surface)]/50">
@@ -46,14 +63,20 @@ const Contact = () => {
             <p className="text-[var(--color-text-muted)] leading-relaxed" style={{ maxWidth: '600px', fontSize: '1rem', marginLeft: 'auto', marginRight: 'auto' }}>
               I'm always open to discussing new opportunities, creative projects, or partnerships.
             </p>
-            <a
-              href="mailto:med10hamouch@gmail.com"
-              className="btn-primary inline-flex"
-              style={{ marginTop: '2rem' }}
-            >
-              <FiMail size={18} />
-              <span>Send Message</span>
-            </a>
+            <div className="flex flex-wrap items-center justify-center gap-3" style={{ marginTop: '2rem' }}>
+              <a href={`mailto:${EMAIL}`} className="btn-primary inline-flex">
+                <FiMail size={18} />
+                <span>Send Message</span>
+              </a>
+              <button type="button" onClick={copyEmail} className="btn-secondary inline-flex">
+                {copyState === 'copied' ? <FiCheck size={18} className="text-[var(--color-tertiary)]" /> : <FiCopy size={18} />}
+                <span>{copyState === 'copied' ? 'Copied!' : copyState === 'failed' ? EMAIL : 'Copy Email'}</span>
+              </button>
+            </div>
+            {/* Announces the result; the button text alone changes silently for screen readers */}
+            <p className="sr-only" aria-live="polite">
+              {copyState === 'copied' ? 'Email address copied to clipboard' : copyState === 'failed' ? `Could not copy. The address is ${EMAIL}` : ''}
+            </p>
           </div>
         </AnimatedSection>
 
