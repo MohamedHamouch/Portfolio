@@ -60,7 +60,7 @@ const Hero = () => {
           className="text-4xl md:text-5xl lg:text-6xl font-bold"
           style={{ marginBottom: '1rem' }}
         >
-          <span className="gradient-text">HAMOUCH MOHAMED</span>
+          <span className="gradient-text">MOHAMED HAMOUCH</span>
         </motion.h1>
 
         {/* Title - moderate spacing from name */}
