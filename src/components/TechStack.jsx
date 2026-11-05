@@ -22,6 +22,7 @@ import {
   SiNextdotjs,
   SiReactquery,
   SiZod,
+  SiLeaflet,
   SiReacthookform,
   SiPython,
   SiFastapi,
@@ -75,6 +76,7 @@ const skillCategories = [
       { name: 'Zustand', icon: SiReact, color: '#61DAFB' },
       { name: 'React Hook Form', icon: SiReacthookform, color: '#EC5990' },
       { name: 'Zod', icon: SiZod, color: '#3E67B1' },
+      { name: 'Leaflet', icon: SiLeaflet, color: '#199900' },
     ],
   },
   {
