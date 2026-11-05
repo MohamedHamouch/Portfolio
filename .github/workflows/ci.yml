@@ -1,0 +1,23 @@
+# Lint and build on every push and pull request, so a broken change shows up
+# here as a red check instead of as a failed or half-broken Vercel deploy.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22 # Vite 7 needs Node 20.19+
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
