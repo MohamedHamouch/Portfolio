@@ -15,8 +15,15 @@ function App() {
     // the slide/bounce (transform) animations and keeps only the opacity fades.
     <MotionConfig reducedMotion="user">
       <div className="min-h-screen bg-[var(--color-bg)]">
+        {/* Hidden until focused: lets keyboard users skip the navbar's ~12 tab stops */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-[var(--color-text)] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[var(--color-bg)]"
+        >
+          Skip to content
+        </a>
         <Navbar />
-        <main>
+        <main id="main">
           <Hero />
           <About />
           <Experience />

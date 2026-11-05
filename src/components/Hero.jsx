@@ -64,7 +64,9 @@ const Hero = () => {
         </motion.h1>
 
         {/* Title - moderate spacing from name */}
-        <motion.h2
+        {/* A <p>, not a heading: it's a subtitle, and a second <h2> here put it level
+            with the real section headings in the page outline. */}
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -72,7 +74,7 @@ const Hero = () => {
           style={{ marginBottom: '2rem' }}
         >
           Full Stack Developer
-        </motion.h2>
+        </motion.p>
 
         {/* Description - larger gap before this section */}
         <motion.p
@@ -142,6 +144,7 @@ const Hero = () => {
       {/* Scroll indicator */}
       <motion.a
         href="#about"
+        aria-label="Scroll to About"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}

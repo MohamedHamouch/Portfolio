@@ -121,15 +121,21 @@ const Navbar = () => {
           className="lg:hidden text-[var(--color-text)] text-2xl hover:text-[var(--color-accent)] transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMobileMenuOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div 
-        className={`lg:hidden fixed inset-0 top-16 bg-[var(--color-bg)] z-40 transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      {/* `invisible` when closed: a translated-away panel is still focusable, so its
+          links stayed in the tab order off-screen. visibility is in the transition so
+          the slide-out still plays before the panel is hidden. */}
+      <div
+        id="mobile-menu"
+        className={`lg:hidden fixed inset-0 top-16 bg-[var(--color-bg)] z-40 transition-[transform,visibility] duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'translate-x-0 visible' : 'translate-x-full invisible'
         }`}
       >
         <div style={{ padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', height: '100%' }}>

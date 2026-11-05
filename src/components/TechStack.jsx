@@ -117,7 +117,8 @@ const skillCategories = [
     title: 'Security & Architecture',
     skills: [
       { name: 'Spring Security', icon: SiSpringsecurity, color: '#6DB33F' },
-      { name: 'Keycloak', icon: SiKeycloak, color: '#4D4D4D' },
+      // Brand grey (#4D4D4D) was 2.2:1 against the card, nearly invisible; lightened.
+      { name: 'Keycloak', icon: SiKeycloak, color: '#9A9AAE' },
       { name: 'OAuth2', icon: FiLock, color: '#EB5424' },
       { name: 'JWT', icon: SiJsonwebtokens, color: '#ffffff' },
       { name: 'Microservices' },
