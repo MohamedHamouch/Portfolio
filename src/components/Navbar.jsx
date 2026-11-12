@@ -10,18 +10,50 @@ const navItems = [
   { name: 'Contact', href: '#contact' },
 ];
 
+// Scroll-spy targets in page order. #cv (the resume card) sits inside #contact, after
+// the contact cards, so it comes last even though the nav lists Resume first.
+const spyIds = ['about', 'experience', 'skills', 'education', 'contact', 'cv'];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
-    const handleScroll = () => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
       setIsScrolled(window.scrollY > 50);
+
+      // Active = the last target whose top has passed a line 35% down the viewport.
+      // Above About (the hero) nothing is active.
+      const line = window.innerHeight * 0.35;
+      let current = '';
+      for (const id of spyIds) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= line) current = id;
+      }
+      // At the very bottom the resume card can't reach the line; count it as reached.
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) current = spyIds[spyIds.length - 1];
+      setActiveId(current);
+    };
+    // One measurement per frame, however many scroll events fire.
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
+
+  const isActive = (item) => item.href === `#${activeId}`;
 
   return (
     <nav
@@ -56,9 +88,18 @@ const Navbar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] text-base font-medium transition-colors duration-300"
+              aria-current={isActive(item) ? 'location' : undefined}
+              className={`relative py-1 text-base font-medium transition-colors duration-300 hover:text-[var(--color-accent)] ${
+                isActive(item) ? 'text-[var(--color-accent)]' : 'text-[var(--color-text-muted)]'
+              }`}
             >
               {item.name}
+              <span
+                aria-hidden="true"
+                className={`absolute left-0 right-0 -bottom-0.5 h-0.5 rounded-full bg-[var(--color-accent)] origin-left transition-transform duration-300 ${
+                  isActive(item) ? 'scale-x-100' : 'scale-x-0'
+                }`}
+              />
             </a>
           ))}
         </div>
@@ -145,7 +186,10 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
+                aria-current={isActive(item) ? 'location' : undefined}
+                className={`hover:text-[var(--color-accent)] transition-colors ${
+                  isActive(item) ? 'text-[var(--color-accent)]' : 'text-[var(--color-text)]'
+                }`}
                 style={{ fontSize: '1.25rem', fontWeight: '500', padding: '0.75rem 0', borderBottom: '1px solid var(--color-border)' }}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
