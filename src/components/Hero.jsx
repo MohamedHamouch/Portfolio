@@ -3,7 +3,10 @@ import { FiGithub, FiLinkedin, FiMail, FiChevronDown } from 'react-icons/fi';
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    // 88svh rather than a full screen: the full-height version left ~150px of empty space
+    // under the social icons, and this way the top of About peeks in as a scroll cue.
+    // pt-16 = navbar height, so the content centres in the visible area below it.
+    <section className="min-h-[88svh] flex items-center justify-center relative overflow-hidden pt-16">
       {/* Animated gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#22d3ee]/8 rounded-full blur-3xl motion-safe:animate-pulse" />
       <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-[#a855f7]/6 rounded-full blur-3xl motion-safe:animate-pulse" style={{ animationDelay: '1s' }} />
@@ -148,7 +151,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
