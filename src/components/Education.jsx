@@ -43,7 +43,8 @@ const Education = () => {
           </h2>
         </AnimatedSection>
 
-        <div className="max-w-4xl">
+        {/* Full container width, matching Experience and the other sections */}
+        <div>
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute w-0.5 bg-gradient-to-b from-[var(--color-accent)] via-[var(--color-accent)]/50 to-transparent" style={{ left: '0.5625rem', top: '1.25rem', bottom: '1.5rem' }} />
