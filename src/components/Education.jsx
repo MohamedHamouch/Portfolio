@@ -22,7 +22,7 @@ const educationData = [
     institution: 'EST - Agadir',
     location: 'Morocco',
     year: '2019 - 2021',
-    description: 'Technical diploma covering programming, databases, networking, and software development.',
+    description: 'Technical diploma covering programming, databases, networking, and software development. Final project: a health and diet monitoring app built with Spring Boot and React, with vital-sign charts, health alerts and meal plans built around a daily calorie target.',
   },
 ];
 
