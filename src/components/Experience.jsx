@@ -7,6 +7,7 @@ const experiences = [
     company: 'YADAG',
     location: 'Toronto, Canada (Remote)',
     period: 'September 2026 - Present',
+    current: true,
     description: [
       'Building a platform that Canadian farms use to hire, onboard and house seasonal foreign workers',
       'Bulk worker creation from a single PDF of passports, read with AWS Textract in a Python FastAPI service',
@@ -76,8 +77,15 @@ const Experience = () => {
                     {/* Header */}
                     <div className="flex flex-wrap items-start justify-between gap-3" style={{ marginBottom: '0.75rem' }}>
                       <div>
-                        <h3 className="text-base font-bold text-[var(--color-text)]" style={{ marginBottom: '0.25rem' }}>
+                        <h3 className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-base font-bold text-[var(--color-text)]" style={{ marginBottom: '0.25rem' }}>
                           {exp.title}
+                          {/* Same green dot as the hero's availability pill */}
+                          {exp.current && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-tertiary)]/30 bg-[var(--color-tertiary)]/10 px-2 py-0.5 text-xs font-medium text-[var(--color-tertiary)]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-tertiary)]" aria-hidden="true" />
+                              Current
+                            </span>
+                          )}
                         </h3>
                         <p className="text-sm font-medium text-[var(--color-secondary)]">
                           {exp.company}
