@@ -11,11 +11,13 @@ const educationData = [
     description: 'Intensive full-stack development program covering modern web technologies, best practices, and real-world project experience. Completed with an end-of-studies internship at YADAG under a YouCode internship agreement.',
   },
   {
-    degree: 'Mathematics & Computer Science',
+    degree: 'Mathematics & Computer Science (SMI)',
+    // No diploma here: the tag says so at a glance, so the title doesn't read as a degree.
+    tag: 'Coursework',
     institution: 'Faculty of Sciences - Agadir',
     location: 'Morocco',
     year: '2021 - 2023',
-    description: 'Foundation in mathematics, algorithms, and computer science fundamentals.',
+    description: 'Algorithms, data structures, databases, networks and object-oriented programming in Java, plus first-year mathematics and physics.',
   },
   {
     degree: 'DUT in Computer Engineering',
@@ -65,8 +67,14 @@ const Education = () => {
                         left, dates and place on the right, in this section's cyan. */}
                     <div className="flex flex-wrap items-start justify-between gap-3" style={{ marginBottom: '0.75rem' }}>
                       <div>
-                        <h3 className="text-base font-bold text-[var(--color-text)]" style={{ marginBottom: '0.25rem' }}>
+                        <h3 className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-base font-bold text-[var(--color-text)]" style={{ marginBottom: '0.25rem' }}>
                           {edu.degree}
+                          {/* Same pill shape as Experience's "Current", in neutral grey */}
+                          {edu.tag && (
+                            <span className="inline-flex items-center rounded-full border border-[var(--color-border-hover)] bg-[var(--color-bg)] px-2 py-0.5 text-xs font-medium text-[var(--color-text-muted)]">
+                              {edu.tag}
+                            </span>
+                          )}
                         </h3>
                         <p className="text-sm font-medium text-[var(--color-accent)]">
                           {edu.institution}
