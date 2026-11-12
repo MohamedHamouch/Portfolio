@@ -1,5 +1,5 @@
 import AnimatedSection from './AnimatedSection';
-import { FiBookOpen, FiArrowUpRight } from 'react-icons/fi';
+import { FiBookOpen, FiArrowUpRight, FiCalendar, FiMapPin } from 'react-icons/fi';
 import { SiHackerrank } from 'react-icons/si';
 
 const educationData = [
@@ -60,17 +60,28 @@ const Education = () => {
                   </div>
 
                   <div style={{ padding: '1rem' }} className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl transition-all duration-300">
+                    {/* Same header layout as the Experience cards: title and school on the
+                        left, dates and place on the right, in this section's cyan. */}
                     <div className="flex flex-wrap items-start justify-between gap-3" style={{ marginBottom: '0.75rem' }}>
-                      <h3 className="text-base font-bold text-[var(--color-text)]">
-                        {edu.degree}
-                      </h3>
-                      <span className="interest-badge">
-                        {edu.year}
-                      </span>
+                      <div>
+                        <h3 className="text-base font-bold text-[var(--color-text)]" style={{ marginBottom: '0.25rem' }}>
+                          {edu.degree}
+                        </h3>
+                        <p className="text-sm font-medium text-[var(--color-accent)]">
+                          {edu.institution}
+                        </p>
+                      </div>
+                      <div className="text-right" style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                        <div className="flex items-center gap-1.5 text-[var(--color-text-muted)] text-sm">
+                          <FiCalendar size={12} className="text-[var(--color-accent)]" />
+                          <span>{edu.year}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-[var(--color-text-muted)] text-sm">
+                          <FiMapPin size={12} className="text-[var(--color-accent)]" />
+                          <span>{edu.location}</span>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-sm font-medium text-[var(--color-accent)]" style={{ marginBottom: '0.5rem' }}>
-                      {edu.institution} • {edu.location}
-                    </p>
                     <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
                       {edu.description}
                     </p>
