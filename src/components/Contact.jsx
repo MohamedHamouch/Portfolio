@@ -148,8 +148,10 @@ const Contact = () => {
         {/* Resume — part of this closing section rather than its own, so the page
             ends on one centred block. Keeps id="cv" for the navbar and hero links. */}
         <AnimatedSection delay={0.3}>
-          <div id="cv" className="scroll-mt-24 text-center" style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--color-border)' }}>
-            <div className="accent-card" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          {/* Capped at the same 1000px as the contact cards above, so the divider line
+              spans exactly the content instead of overhanging it on both sides. */}
+          <div id="cv" className="scroll-mt-24 text-center" style={{ maxWidth: '1000px', margin: '3rem auto 0', paddingTop: '2rem', borderTop: '1px solid var(--color-border)' }}>
+            <div className="accent-card">
               <div className="flex flex-col md:flex-row md:items-center gap-6 p-6 md:p-8 text-left">
                 {/* Two stacked pages: one per language */}
                 <div className="relative w-16 h-20 shrink-0 mx-auto md:mx-0" aria-hidden="true">
